@@ -26,6 +26,7 @@ public class JsonUtil {
         try {
             return objectMapper.readValue(json, clazz);
         } catch (JsonProcessingException e) {
+            e.printStackTrace();
             throw new RuntimeException("Failed to convert JSON to object", e);
         }
     }

@@ -35,12 +35,14 @@ public class NotificationManagerImpl implements NotificationManager {
 
     @Override
     public void handelInventoryCreated(NotificationDto notificationDto) {
-        jsonUtil.fromJson(notificationDto.getMessage(), null);
+        // jsonUtil.fromJson(notificationDto.getMessage(), null);
     }
 
     public NotificationDto createInventoryRequestNotificationDto(NotificationDto notificationDto) {
 
-        OrderResponseDto orderResponseDto = jsonUtil.fromJson(notificationDto.getMessage(), OrderResponseDto.class);
+        //OrderResponseDto orderResponseDto = jsonUtil.fromJson(notificationDto.getMessage(), OrderResponseDto.class);
+
+        OrderResponseDto orderResponseDto = (OrderResponseDto) notificationDto.getMasterDto();
 
         InventoryRequestDto inventoryRequestDto = InventoryRequestDto.builder()
                 .stockId(orderResponseDto.getStockId())
@@ -53,7 +55,6 @@ public class NotificationManagerImpl implements NotificationManager {
 
         return NotificationDto
                 .builder()
-                .message(message)
                 .serviceName("inventory-service")
                 .build();
     }

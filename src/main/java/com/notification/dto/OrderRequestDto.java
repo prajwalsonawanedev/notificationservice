@@ -10,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
-public class OrderRequestDto {
+public class OrderRequestDto implements MasterDto {
 
     private Long orderId;
 

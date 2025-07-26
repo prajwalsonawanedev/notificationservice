@@ -2,12 +2,8 @@ package com.notification.dto;
 
 import lombok.*;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
-public class InventoryRequestDto {
+public class InventoryRequestDto implements MasterDto {
 
     private String userId;
 
